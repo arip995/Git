@@ -1,1 +1,3 @@
-<router-outlet></router-outlet>
+<router-outlet>
+    <mat-progress-spinner style="position: fixed;" class="mb-auto" *ngIf="loader.isLoading | async" mode="indeterminate"></mat-progress-spinner>
+</router-outlet>

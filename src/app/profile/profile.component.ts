@@ -23,6 +23,39 @@ export class ProfileComponent implements OnInit {
         })
       ))
     )
+    this.http.get(`https://api.github.com/users/arip995`)
+    .subscribe((res: any) => {
+      this.profileData = res;
+    })
+    this.http.get(`https://api.github.com/users/arip995/repos`)
+    .subscribe((res: any) => {
+      this.profileData = res;
+    })
+    this.http.get(`https://api.github.com/users/arip995/repos`)
+    .subscribe((res: any) => {
+      this.profileData = res;
+    })
+    this.http.get(`https://api.github.com/users/arip995/repos`)
+    .subscribe((res: any) => {
+      this.profileData = res;
+    })
+    this.http.get(`https://api.github.com/users/arip995/repos`)
+    .subscribe((res: any) => {
+      this.profileData = res;
+    })
+    this.http.get(`https://api.github.com/users/arip995/repos`)
+    .subscribe((res: any) => {
+      this.profileData = res;
+    })
+    this.http.get(`https://api.github.com/users/arip995`)
+    .subscribe((res: any) => {
+      this.profileData = res;
+    })
+
+    this.http.get(`https://api.github.com/users/arip995`)
+    .subscribe((res: any) => {
+      this.profileData = res;
+    })
   }
 
   ngOnInit(): void {
