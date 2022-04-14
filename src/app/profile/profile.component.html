@@ -1,1 +1,6 @@
-<div class="btn-primary">profile works!</div>
+<ng-container 
+*ngIf="profileData$ | async"
+>
+    <div class="">{{profileData.login}}</div>
+
+</ng-container>
