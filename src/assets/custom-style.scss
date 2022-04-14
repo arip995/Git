@@ -2,6 +2,9 @@
   .btn-primary {
     @apply bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-0 rounded shadow hover:cursor-pointer;
   }
+  .btn-rounded {
+    @apply block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100
+  }
   .font-git {
     @apply font: 400 14px Nunito Sans,sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,Oxygen,Ubuntu,Cantarell,Helvetica Neue;
   }
