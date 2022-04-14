@@ -9,6 +9,7 @@ import { ProfileData } from 'src/assets/models/Profile.type';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
+  userName!: string;
   profileData!: ProfileData;
   private refreshToken: BehaviorSubject<any> = new BehaviorSubject<any>(null);
   profileData$: any;
@@ -16,20 +17,30 @@ export class ProfileComponent implements OnInit {
   constructor(
     private http: HttpClient
   ) {
-    this.profileData$ = this.refreshToken.pipe(
-      switchMap(() => this.http.get(`https://api.github.com/users/arip995`).pipe(
-        tap((res:any)=>{
-          this.profileData = res;
-        })
-      ))
-    )
+    // this.profileData$ = this.refreshToken.pipe(
+    //   switchMap(() => this.http.get(`https://api.github.com/users/arip995`).pipe(
+    //     tap((res:any)=>{
+    //       this.profileData = res;
+    //     })
+    //   ))
+    // )
   }
 
   ngOnInit(): void {
   }
 
   searchUser(event: any){
+    this.userName = event;
     console.log(event)
+    this.getUserPersonalInfo();
+  }
+
+  getUserPersonalInfo(){
+    this.http.get(`https://api.github.com/users/arip995`)
+    .subscribe((res: any) => {
+      console.log(res);
+      this.profileData = res;
+    })
   }
 
 }

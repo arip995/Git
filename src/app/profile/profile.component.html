@@ -1,3 +1,12 @@
 <app-search class="fixed w-full" (userName)="searchUser($event)"></app-search>
 <div class="h-16"></div>
-<div style="height:100vh" class="">erte</div>
+
+<ng-container *ngIf="profileData;else search">
+
+</ng-container>
+
+<ng-template #search>
+    <div class="h-full w-full flex justify-center items-center text-xl text-slate-300 italic">
+        Please enter username
+    </div>
+</ng-template>
