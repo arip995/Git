@@ -23,13 +23,6 @@ export class ProfileComponent implements OnInit {
       console.log;
       this.getUserPersonalInfo();
     }
-    // this.profileData$ = this.refreshToken.pipe(
-    //   switchMap(() => this.http.get(`https://api.github.com/users/arip995`).pipe(
-    //     tap((res:any)=>{
-    //       this.profileData = res;
-    //     })
-    //   ))
-    // )
   }
 
   ngOnInit(): void {}
@@ -41,14 +34,6 @@ export class ProfileComponent implements OnInit {
   }
 
   getUserPersonalInfo() {
-    // var b=[1,2];
-    // b.map((ress)=>{
-    //   this.http.get(`https://api.github.com/users/${this.userName}`)
-    //   .subscribe((res: any) => {
-    //     console.log(ress)
-    //   })
-    // })
-
     this.http
       .get(`https://api.github.com/users/${this.userName}`)
       .subscribe((res: any) => {
