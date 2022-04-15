@@ -9,7 +9,7 @@ import { ProfileData } from 'src/assets/models/Profile.type';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-  userName!: string;
+  userName: any;
   profileData!: ProfileData;
   private refreshToken: BehaviorSubject<any> = new BehaviorSubject<any>(null);
   profileData$: any;
@@ -17,8 +17,9 @@ export class ProfileComponent implements OnInit {
   constructor(
     private http: HttpClient
   ) {
-    this.userName = JSON.stringify(localStorage.getItem('userName'));
+    this.userName = localStorage.getItem('userName');
     if(this.userName) {
+      console.log
       this.getUserPersonalInfo();
     }
     // this.profileData$ = this.refreshToken.pipe(
