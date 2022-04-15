@@ -24,6 +24,7 @@ export class SearchComponent implements OnInit {
   search() {
     const val = this.searchForm?.get('search')?.value;
     if (val) {
+      localStorage.setItem('userName', val);
       this.userName.emit(val);
     }else {
       this._matSnackBar.open('Please enter a username!', 'Close', {

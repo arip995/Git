@@ -17,6 +17,10 @@ export class ProfileComponent implements OnInit {
   constructor(
     private http: HttpClient
   ) {
+    this.userName = JSON.stringify(localStorage.getItem('userName'));
+    if(this.userName) {
+      this.getUserPersonalInfo();
+    }
     // this.profileData$ = this.refreshToken.pipe(
     //   switchMap(() => this.http.get(`https://api.github.com/users/arip995`).pipe(
     //     tap((res:any)=>{
@@ -36,9 +40,9 @@ export class ProfileComponent implements OnInit {
   }
 
   getUserPersonalInfo(){
-    this.http.get(`https://api.github.com/users/arip995`)
+    this.http.get(`https://api.github.com/users/${this.userName}`)
     .subscribe((res: any) => {
-      console.log(res);
+      console.log(res)
       this.profileData = res;
     })
   }
