@@ -42,14 +42,9 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="w-1/2 flex justify-center">
-                    <div class="w-8/12" style="border:2px solid rgb(59, 73, 223)">
-                        {{repos.name}}
-                    </div>
-                </div> -->
             </div>
             <div class="flex justify-center w-11/12 m-16">
-                <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page">
+                <mat-paginator (page)="pagination($event)" [length]="numberOfRepos" [pageSize]="6" [pageSizeOptions]="[6,12,18,24,30]" aria-label="Select page">
                 </mat-paginator>
             </div>
         </ng-container>
