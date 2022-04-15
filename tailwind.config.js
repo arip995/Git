@@ -1,4 +1,7 @@
 module.exports = {
+  content: [
+    "./node_modules/flowbite/**/*.js"
+],
   corePlugins: {
     preflight: false,
   },
@@ -13,5 +16,7 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require('flowbite/plugin')
+  ],
 }
