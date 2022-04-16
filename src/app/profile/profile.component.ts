@@ -20,7 +20,7 @@ export class ProfileComponent implements OnInit {
   repoNames: any = [];
   repoLanguages: any = [];
   pageIndex: number = 1;
-  pageSize:number = 6;
+  pageSize: number = 6;
   numberOfRepos!: number;
 
   constructor(private http: HttpClient) {
@@ -49,9 +49,11 @@ export class ProfileComponent implements OnInit {
   }
 
   getRepositories() {
-    this.http.get(` https://api.github.com/users/${this.userName}/repos`).subscribe((res: any) => {
-      this.numberOfRepos = res.length;
-    })
+    this.http
+      .get(` https://api.github.com/users/${this.userName}/repos`)
+      .subscribe((res: any) => {
+        this.numberOfRepos = res.length;
+      });
     this.http
       .get(
         `https://api.github.com/users/${this.userName}/repos?page=${this.pageIndex}&per_page=${this.pageSize}`
@@ -74,7 +76,7 @@ export class ProfileComponent implements OnInit {
       });
   }
 
-  pagination(event:PageEvent){
+  pagination(event: PageEvent) {
     this.pageIndex = event.pageIndex + 1;
     this.pageSize = event.pageSize;
     this.getRepositories();

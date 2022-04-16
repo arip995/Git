@@ -2,30 +2,34 @@
 <div class="h-16"></div>
 
 <ng-container *ngIf="profileData;else search">
-    <div class="w-full">
-        <div class="w-8/12 flex items-center">
-            <div class="">
-                <img style="border:4px solid rgb(239, 241, 249)" height="250" width="250"
-                    class="mr-12 mt-12 ml-12 p-1 rounded-full" [src]="profileData.avatar_url" />
-            </div>
-            <div class="text-left ml-6 mt-12">
-                <div class="text-2xl font-bold mb-5" style="color: rgba(59, 73, 223)">{{profileData.name}}</div>
-                <div class="text-lg font-light mb-5">{{profileData.bio}}</div>
-                <div class="text-lg font-light mb-5 flex items-center">
-                    <mat-icon class="mr-2"> location_on</mat-icon>{{profileData.location}}
+    <div class="w-full h-full">
+        <div class="flex justify-center">
+            <div class="w-9/12 flex justify-start items-center">
+                <div class="">
+                    <img style="border:4px solid rgb(239, 241, 249)" height="250" width="250"
+                        class="mr-12 mt-12 ml-12 p-1 rounded-full" [src]="profileData.avatar_url" />
                 </div>
-                <div *ngIf="profileData.twitter_username" class="text-lg font-light mb-5">
-                    {{profileData.twitter_username}}</div>
+                <div class="text-left ml-6 mt-12">
+                    <div class="text-2xl font-bold mb-5" style="color: rgba(59, 73, 223)">{{profileData.name}}</div>
+                    <div class="text-lg font-light mb-5">{{profileData.bio}}</div>
+                    <div class="text-lg font-light mb-5 flex items-center">
+                        <mat-icon class="mr-2"> location_on</mat-icon>{{profileData.location}}
+                    </div>
+                    <div *ngIf="profileData.twitter_username" class="text-lg font-light mb-5">
+                        {{profileData.twitter_username}}</div>
+                </div>
             </div>
         </div>
-        <div class="flex ml-12 mt-2 items-center">
-            <mat-icon class="mr-3">attachment</mat-icon>
-            <a href="https://github.com/{{this.userName}}" target="_blank"
-                class="">https://api.github.com/users/{{this.userName}}</a>
+        <div class="flex justify-center items-center mt-4">
+            <div class="w-8/12 flex justify-start items-center mr-4">
+                <mat-icon class="mr-3">attachment</mat-icon>
+                <a href="https://github.com/{{this.userName}}" target="_blank"
+                    class="">https://api.github.com/users/{{this.userName}}</a>
+            </div>
         </div>
 
         <ng-container *ngIf="repoLanguages">
-            <div class="w-full flex justify-center mt-16">
+            <div class="w-full mt-16">
                 <div class="w-full flex flex-wrap justify-center gap-8">
                     <div class="w-4/12 min-w-4/12 "
                         style="border:2px solid rgb(59, 73, 223);background-color: rgba(247,248,253,1);"
@@ -44,7 +48,8 @@
                 </div>
             </div>
             <div class="flex justify-center w-11/12 m-16">
-                <mat-paginator (page)="pagination($event)" [length]="numberOfRepos" [pageSize]="6" [pageSizeOptions]="[6,12,18,24,30]" aria-label="Select page">
+                <mat-paginator (page)="pagination($event)" [length]="numberOfRepos" [pageSize]="6"
+                    [pageSizeOptions]="[6,12,18,24,30]" aria-label="Select page">
                 </mat-paginator>
             </div>
         </ng-container>
